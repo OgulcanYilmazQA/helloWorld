@@ -1,14 +1,16 @@
 pipeline {
     agent any
+
     stages {
-        stage('Checkout') {
+        stage('Clone repo') {
             steps {
-                checkout scm
+                git url: 'https://github.com/OgulcanYilmazQA/helloWorld.git'
             }
         }
-        stage('Run Python') {
+
+        stage('Build') {
             steps {
-                sh 'python3 hello.py'
+                echo 'Building project...'
             }
         }
     }
